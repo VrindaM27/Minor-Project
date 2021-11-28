@@ -3,24 +3,25 @@
 #include <queue>
 using namespace std;
 
-struct process
+class process
 {
-	int pr;
+public:
 	int bt;
+	int pr;
 	int rem_bt;
 	int tat,wt;
 int pid;
 
 };
 
-bool compare(struct process a,struct process b)
+ bool compare(class process a,class process b)
 {
-	return a.pr<b.pr;
+return a.pr<b.pr;
 
 }
 
 
-bool comparePID(struct process x,struct process y)
+ bool comparePID(class process x,class process y)
 {
    return x.pid < y.pid;
 }
