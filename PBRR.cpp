@@ -33,8 +33,7 @@ void input_prior(int i){
 //to input the BT for all the processes
 void input_burst(int i){
     cin >> bt;
-    bt_rem=bt;
-    
+    bt_rem=bt;   
 }
 
 //in case there is some BT remaining for the process
@@ -93,7 +92,7 @@ void display_process_in_gantt(int index,int i){
 int main()
 {
     
-    int n,index,i,context=-2,tq; //here context=-2 isliye hai kyunki ek context switch extra ara tha(you can run the code by taking context=0 and see for yourself XD)
+    int n,index,i,context=0,tq; 
     queue<int> q; //ready queue
     int completed= 0; //to check if the process is completed or not
     
@@ -141,8 +140,7 @@ for(i=0;i<n;i++){
       {    
             ps[index].bt_rem -= tq;
             curr_time += tq;
-           
-            
+        
       }
       else if(ps[index].bt_rem<=tq)
       {     
@@ -171,19 +169,21 @@ for(i=0;i<n;i++){
 	index=q.front();
     
     q.pop();
-      
+    
+    if(ps[index].bt_rem>0)
+		  {
+		 	context++; 
+		  } 
 	display_process_in_gantt(index,i); 
 	ps[index].process_exhaust(index);
-	context++;
+	
    
 }//for
 
 //displaying performance metrics
 
-cout<<endl<<"Context Switches:"<<context; 
+cout<<endl<<"Context Switches:"<<context-1; 
 cout<<endl<<"Average Turnaround Time:"<<sum_tat/n<<" "<<"ms";
 cout<<endl<<"Average Waiting Time:"<<sum_wt/n<<" "<<"ms";
    return 0;
 }
-   
-    
