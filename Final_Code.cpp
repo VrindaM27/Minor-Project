@@ -9,7 +9,7 @@ float sum_tat=0,sum_wt=0;
 
 void menu()
 {   cout<<endl;
-	cout<<endl<<"***** CHOOSE A SCHEDULING ALGORITHM *****";
+    cout<<endl<<"***** CHOOSE A SCHEDULING ALGORITHM *****";
     cout<<endl<<"1. Priority Based Round Robin Scheduling";
     cout<<endl<<"2. Round Robin Scheduling";
     cout<<endl<<"3. Priority Based Scheduling";
